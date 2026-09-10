@@ -13,9 +13,10 @@ Check that:
   acceptance IDs are consistent.
 - The spec describes the same target and strategy without carrying execution
   status.
-- Schema-v4 packages have implementation slices with checks, one penultimate
-  quality-review slice with the project-profile command, and one final
-  verification slice.
+- Schema-v6 packages have implementation slices with the fixed static gate and
+  workspace suite, one penultimate quality-review slice with the static gate,
+  and one final verification slice that adds the live proofs of the goal; no
+  slice carries a hand-picked check.
 - Started closure slices satisfy their prerequisites.
 - Done slices have resolved acceptance, required checks, optional checks,
   questions, and findings.

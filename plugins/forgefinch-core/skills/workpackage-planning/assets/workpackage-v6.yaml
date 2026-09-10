@@ -1,0 +1,88 @@
+schema_version: 6
+id: WP-0000
+title: Short title
+status: planned
+owner: codex
+spec_ref: WP-0000-short-title.spec.md
+goal: "The intended outcome is present, verified by the static gate, the workspace suite, and the named live proofs, while preserving named product boundaries."
+scope:
+  in:
+    - Intended behavior.
+  out:
+    - Unrelated product behavior.
+slices:
+  - id: WP-0000-S1
+    kind: implementation
+    title: Implement the focused behavior
+    status: todo
+    summary: Deliver the smallest coherent implementation outcome.
+    ac:
+      - id: WP-0000-S1-AC1
+        status: todo
+        text: The focused behavior is observable and covered by the workspace suite.
+    checks:
+      - cmd: just check
+        required: true
+        status: todo
+        notes: Pending.
+        tier: static
+        env: none
+      - cmd: just test
+        required: true
+        status: todo
+        notes: Pending.
+        tier: workspace
+        env: docker
+    questions: []
+    notes: []
+    completion: []
+  - id: WP-0000-S2
+    kind: quality_review
+    title: Review the complete implementation
+    status: todo
+    summary: Perform an independent findings-first quality review.
+    ac:
+      - id: WP-0000-S2-AC1
+        status: todo
+        text: Findings are resolved or reopen their owning implementation slice.
+    checks:
+      - cmd: just check
+        required: true
+        status: todo
+        notes: Pending after all implementation slices are resolved.
+        tier: static
+        env: none
+    questions: []
+    notes: []
+    completion: []
+  - id: WP-0000-S3
+    kind: verification
+    title: Verify the complete package
+    status: todo
+    summary: Prove the goal, constraints, integrated behavior, and regressions.
+    ac:
+      - id: WP-0000-S3-AC1
+        status: todo
+        text: Complete-goal evidence proves the intended outcome and boundaries.
+    checks:
+      - cmd: just check
+        required: true
+        status: todo
+        notes: Pending.
+        tier: static
+        env: none
+      - cmd: just test
+        required: true
+        status: todo
+        notes: Pending.
+        tier: workspace
+        env: docker
+      - cmd: just test-http-api-playwright
+        required: true
+        status: todo
+        notes: Replace with the live proofs that establish this package's goal.
+        tier: live
+        env: disposable
+    questions: []
+    notes: []
+    completion: []

@@ -13,14 +13,14 @@ and completion commands; this skill owns the shared delivery sequence.
 
 1. Inspect the current repository state, instructions, relevant implementation,
    and tests before changing files.
-2. For broad work, create or select a schema-v4 workpackage and run definition
+2. For broad work, create or select a schema-v6 workpackage and run definition
    before implementation. A small single-session change may keep an equivalent
    plan in the current task when repository rules allow it.
 3. Implement one selected implementation slice at a time against its acceptance
-   criteria and focused checks.
+   criteria, then run its fixed checks: the static gate and the workspace
+   suite.
 4. After all implementation slices are resolved, perform the independent,
-   findings-first quality-review slice and run the profile's required quality
-   command.
+   findings-first quality-review slice and run the static gate.
 5. Perform final verification only after quality review is done. Prove the
    complete goal, constraints, integrations, and relevant regressions.
 6. Report changed files, checks actually run, skipped or blocked checks with
