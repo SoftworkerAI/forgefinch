@@ -16,13 +16,13 @@ and completion commands; this skill owns the shared delivery sequence.
 2. For broad work, create or select a schema-v6 workpackage and run definition
    before implementation. A small single-session change may keep an equivalent
    plan in the current task when repository rules allow it.
-3. Implement one selected implementation slice at a time against its acceptance
-   criteria, then run its fixed checks: the static gate and the workspace
-   suite.
-4. After all implementation slices are resolved, perform the independent,
-   findings-first quality-review slice and run the static gate.
-5. Perform final verification only after quality review is done. Prove the
-   complete goal, constraints, integrations, and relevant regressions.
+3. Build the testing, implementation, and documentation slices in order,
+   recording only that each compiles; nothing runs before delivery.
+4. Perform delivery only after all three are done: record the findings-first
+   review, run the static gate, the workspace suite, and the live proofs, and
+   close every criterion with its proof.
+5. A defect found in delivery reopens the producing slice that owns the
+   criterion and returns delivery to `todo`.
 6. Report changed files, checks actually run, skipped or blocked checks with
    reasons, manual verification, and residual risk.
 
@@ -34,9 +34,8 @@ Use `$workpackage-planning`,
 ## Invariants
 
 - Required checks are blocked rather than skipped when unavailable.
-- Do not start quality review before implementation is resolved.
-- Do not start final verification before quality review is resolved.
-- A behavior defect uses `[defect-open]`, reopens the owning implementation
-  slice, and resets review and verification to `todo` until re-reviewed and
-  reverified.
+- Do not start delivery before the testing, implementation, and documentation
+  slices are done.
+- A behavior defect uses `[defect-open]`, reopens the producing slice that
+  owns the criterion, and resets delivery to `todo` until proven again.
 - Do not claim a command passed unless it was executed and passed.

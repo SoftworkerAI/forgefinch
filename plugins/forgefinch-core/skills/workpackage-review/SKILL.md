@@ -1,6 +1,6 @@
 ---
 name: workpackage-review
-description: Review workpackage YAML/spec completeness, slice state, acceptance criteria, mandatory quality review, evidence, boundaries, and completion claims.
+description: Review workpackage YAML/spec completeness, slice state, acceptance criteria and their proofs, the delivery review, evidence, boundaries, and completion claims.
 ---
 
 # Workpackage Review
@@ -13,10 +13,12 @@ Check that:
   acceptance IDs are consistent.
 - The spec describes the same target and strategy without carrying execution
   status.
-- Schema-v6 packages have implementation slices with the fixed static gate and
-  workspace suite, one penultimate quality-review slice with the static gate,
-  and one final verification slice that adds the live proofs of the goal; no
-  slice carries a hand-picked check.
+- Schema-v6 packages have exactly four slices, testing, implementation,
+  documentation, and delivery; the producing slices carry criteria and a
+  compile entry and no checks, and delivery carries the static gate, the
+  workspace suite, the live proofs, and the review.
+- No criterion is `done` without a proof naming a done delivery check, and no
+  producing slice is `done` without a done compile.
 - Started closure slices satisfy their prerequisites.
 - Done slices have resolved acceptance, required checks, optional checks,
   questions, and findings.

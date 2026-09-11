@@ -4,22 +4,23 @@ Select commands from the repository being changed. Read `AGENTS.md`, the root
 task runner, package scripts, and CI configuration; never copy a command from
 an unrelated example.
 
-Every project profile names three fixed recipes plus its live proofs:
+Every project profile names these recipes:
 
+- Compile: the recipes that build an artifact without executing anything. The
+  testing and implementation slices record the code compile; the documentation
+  slice records the docs compile.
 - Static gate: the one recipe that runs every formatter, linter, validator,
-  contract, SDK, and supply-chain check. It is the `static` check of every
-  slice and the quality-review slice's only check.
+  contract, SDK, and supply-chain check. Delivery's first check.
 - Workspace suite: the one recipe that runs the whole test suite, unit and
-  real-substrate integration together. It is the `workspace` check of every
-  implementation and verification slice.
+  real-substrate integration together. Delivery's second check.
 - Live proofs: the recipes that exercise a running backend or a disposable
-  stack. The verification slice names the ones that prove the package goal.
+  stack. Delivery names the ones that prove the package goal.
 - Workpackage validation: the repository-owned schema check, which the static
   gate includes.
 
-Example: the Softworker platform names `just check`, `just test`, and live
-recipes such as `just test-http-api-playwright` and `just dev-smoke`, with
-`just verify` as the human shortcut for the first two plus the disposable HTTP
-journey. Examples are not defaults. If a project has no single static gate or
-no single workspace suite, creating them is the first slice of the first
-package that needs them; do not substitute a hand-picked list.
+Example: the Softworker platform names `just compile` and `just compile-docs`
+for the producing slices, `just check` and `just test` for delivery, and live
+recipes such as `just test-http-api-playwright` and `just dev-smoke`. Examples
+are not defaults. If a project has no single static gate or no single
+workspace suite, creating them is the first package that needs them; do not
+substitute a hand-picked list.

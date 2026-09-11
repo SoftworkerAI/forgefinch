@@ -12,58 +12,61 @@ scope:
     - Unrelated product behavior.
 slices:
   - id: WP-0000-S1
-    kind: implementation
-    title: Implement the focused behavior
+    kind: testing
+    title: Write the tests
     status: todo
-    summary: Deliver the smallest coherent implementation outcome.
+    summary: State each promise as an executable assertion.
+    compile:
+      cmd: just compile
+      status: todo
+      notes: Pending.
     ac:
       - id: WP-0000-S1-AC1
         status: todo
-        text: The focused behavior is observable and covered by the workspace suite.
-    checks:
-      - cmd: just check
-        required: true
-        status: todo
-        notes: Pending.
-        tier: static
-        env: none
-      - cmd: just test
-        required: true
-        status: todo
-        notes: Pending.
-        tier: workspace
-        env: docker
+        text: A test proves the focused behavior.
+        proof: ""
     questions: []
     notes: []
     completion: []
   - id: WP-0000-S2
-    kind: quality_review
-    title: Review the complete implementation
+    kind: implementation
+    title: Implement the focused behavior
     status: todo
-    summary: Perform an independent findings-first quality review.
+    summary: Satisfy the tests without running them here.
+    compile:
+      cmd: just compile
+      status: todo
+      notes: Pending.
     ac:
       - id: WP-0000-S2-AC1
         status: todo
-        text: Findings are resolved or reopen their owning implementation slice.
-    checks:
-      - cmd: just check
-        required: true
-        status: todo
-        notes: Pending after all implementation slices are resolved.
-        tier: static
-        env: none
+        text: The focused behavior is observable.
+        proof: ""
     questions: []
     notes: []
     completion: []
   - id: WP-0000-S3
-    kind: verification
-    title: Verify the complete package
+    kind: documentation
+    title: Document the focused behavior
     status: todo
-    summary: Prove the goal, constraints, integrated behavior, and regressions.
+    summary: Describe the behavior where its readers look for it.
+    compile:
+      cmd: just compile-docs
+      status: todo
+      notes: Pending.
     ac:
       - id: WP-0000-S3-AC1
         status: todo
-        text: Complete-goal evidence proves the intended outcome and boundaries.
+        text: The documentation names the behavior and its boundaries.
+        proof: ""
+    questions: []
+    notes: []
+    completion: []
+  - id: WP-0000-S4
+    kind: delivery
+    title: Review and prove the package
+    status: todo
+    summary: Findings-first review, every tier of test, every criterion proven.
     checks:
       - cmd: just check
         required: true
@@ -83,6 +86,7 @@ slices:
         notes: Replace with the live proofs that establish this package's goal.
         tier: live
         env: disposable
+    review: ""
     questions: []
     notes: []
     completion: []

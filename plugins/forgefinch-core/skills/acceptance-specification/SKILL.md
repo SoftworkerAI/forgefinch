@@ -13,13 +13,13 @@ implementation and tests.
 - Prefix each criterion ID with its slice ID, such as `WP-0001-S1-AC1`.
 - State observable behavior, evidence, and important negative cases rather than
   implementation activities.
-- Keep criteria within the selected slice and connect them to executable checks.
+- Write each criterion in the producing slice that realizes it, testing,
+  implementation, or documentation, with an empty `proof`; delivery fills the
+  proof in.
 - Cover relevant contracts, security, privacy, accessibility, persistence,
   failure behavior, and architecture boundaries identified by product guidance.
-- Quality-review criteria prove a findings-first review occurred and every
-  finding was either resolved or reopened in its implementation slice.
-- Final-verification criteria close the complete workpackage goal, constraints,
-  integration journeys, and affected regression layers.
+- The delivery slice carries no criteria of its own; its review and its live
+  proofs are what close the criteria above.
 
-Done means criteria are concrete, testable, correctly prefixed, slice-scoped,
-and mapped to evidence that can establish the goal.
+Done means criteria are concrete, testable, correctly prefixed, placed in the
+slice that realizes them, and closable by a delivery check.
