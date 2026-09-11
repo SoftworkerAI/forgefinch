@@ -34,6 +34,9 @@ Use `$workpackage-planning`,
 ## Invariants
 
 - Required checks are blocked rather than skipped when unavailable.
+- A package lives on one branch: producing slices are commits on it, delivery
+  is the pull request, and the main branch receives the package only when
+  delivery is done. Never push a producing slice to the main branch.
 - Do not start delivery before the testing, implementation, and documentation
   slices are done.
 - A behavior defect uses `[defect-open]`, reopens the producing slice that

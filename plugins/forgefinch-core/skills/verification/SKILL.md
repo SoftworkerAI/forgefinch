@@ -9,7 +9,9 @@ Use the delivery slice, every criterion in the three producing slices, the
 workpackage spec, repository commands, and applicable product skills.
 
 - Start only after the testing, implementation, and documentation slices are
-  `done`, which means each compiled with no open question.
+  `done`, which means each compiled with no open question. Delivery is the
+  package's pull request; the main branch receives the package only when
+  delivery is `done`.
 - Record the findings-first review of the complete delta in the delivery
   slice's `review` before running any check. A material finding marks
   `[defect-open]`, reopens the producing slice that owns the criterion, and

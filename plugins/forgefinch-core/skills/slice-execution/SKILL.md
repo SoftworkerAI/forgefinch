@@ -19,7 +19,9 @@ description: Build one selected producing slice of a schema-v6 workpackage, test
    delivery.
 5. Mark the slice `done` only when the compile passed and no question is open.
    Leave every criterion `todo` with its proof empty.
-6. Record changed files, the compile result, and open questions in YAML. Do not
+6. Commit the slice on the package branch; a producing slice never lands on
+   the main branch, because its tests compile but are not yet proven.
+7. Record changed files, the compile result, and open questions in YAML. Do not
    put status evidence in the descriptive spec.
 
 Delivery belongs to `$verification`. If delivery later reopens this slice
