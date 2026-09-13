@@ -11,16 +11,18 @@ Every project profile names these recipes:
   slice records the docs compile.
 - Static gate: the one recipe that runs every formatter, linter, validator,
   contract, SDK, and supply-chain check. Delivery's first check.
-- Workspace suite: the one recipe that runs the whole test suite, unit and
-  real-substrate integration together. Delivery's second check.
+- Unit tier: the one recipe that runs every test needing no substrate, with no
+  running environment. Delivery's second check.
+- Integration tier: the one recipe that runs every real-substrate test against
+  the one running local environment. Delivery's third check.
 - Live proofs: the recipes that exercise a running backend or a disposable
   stack. Delivery names the ones that prove the package goal.
 - Workpackage validation: the repository-owned schema check, which the static
   gate includes.
 
 Example: the Softworker platform names `just compile` and `just compile-docs`
-for the producing slices, `just check` and `just test` for delivery, and live
+for the producing slices, `just check`, `just test`, and `just test-integration` for delivery, and live
 recipes such as `just test-http-api-playwright` and `just dev-smoke`. Examples
 are not defaults. If a project has no single static gate or no single
-workspace suite, creating them is the first package that needs them; do not
+unit and integration tiers, creating them is the first package that needs them; do not
 substitute a hand-picked list.

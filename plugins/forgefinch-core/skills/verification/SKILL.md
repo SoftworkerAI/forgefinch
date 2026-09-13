@@ -16,7 +16,7 @@ workpackage spec, repository commands, and applicable product skills.
   slice's `review` before running any check. A material finding marks
   `[defect-open]`, reopens the producing slice that owns the criterion, and
   returns delivery to `todo`.
-- Run the static gate, the workspace suite, and the live and destructive
+- Run the static gate, the unit tier, the integration tier, and the live and destructive
   proofs the slice names. Record exact commands and results with executed
   counts, skipped counts, seconds, and a run reference. Required unavailable
   checks are blocked; optional checks may be skipped only with the unavailable

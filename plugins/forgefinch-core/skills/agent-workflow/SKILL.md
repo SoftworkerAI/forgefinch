@@ -19,7 +19,7 @@ and completion commands; this skill owns the shared delivery sequence.
 3. Build the testing, implementation, and documentation slices in order,
    recording only that each compiles; nothing runs before delivery.
 4. Perform delivery only after all three are done: record the findings-first
-   review, run the static gate, the workspace suite, and the live proofs, and
+   review, run the static gate, the unit tier, the integration tier, and the live proofs, and
    close every criterion with its proof.
 5. A defect found in delivery reopens the producing slice that owns the
    criterion and returns delivery to `todo`.

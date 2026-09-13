@@ -19,9 +19,10 @@ They never carry `checks`. A producing slice is `done` when its compile is
 means built, never proven.
 
 The delivery slice carries `checks` and `review` and no criteria of its own.
-Its checks are the project's static gate, its workspace suite (every unit and
-real-substrate integration test in one run), and at least one `live` check,
-with only `live` and `destructive` checks beyond them. `review` holds the
+Its checks are the project's static gate, its unit tier (every test needing no
+substrate, with no running environment), its integration tier (every
+real-substrate test against the one running local environment), and at least
+one `live` check, with only `live` and `destructive` checks beyond them. `review` holds the
 findings-first review of the complete delta and is recorded before any check
 is `done`. Delivery starts only after all three producing slices are `done`.
 
@@ -36,7 +37,7 @@ in every slice is `done` with proof.
 
 ## Evidence And Closure
 
-- A required `workspace` or `live` check is `done` only with at least one
+- A required `integration` or `live` check is `done` only with at least one
   executed test recorded in its evidence.
 - A skipped optional check names the unavailable capability in its notes
   (`Unavailable capability: ...`).

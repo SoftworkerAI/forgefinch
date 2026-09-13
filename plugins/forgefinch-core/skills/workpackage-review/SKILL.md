@@ -16,7 +16,7 @@ Check that:
 - Schema-v6 packages have exactly four slices, testing, implementation,
   documentation, and delivery; the producing slices carry criteria and a
   compile entry and no checks, and delivery carries the static gate, the
-  workspace suite, the live proofs, and the review.
+  unit and integration tiers, the live proofs, and the review.
 - No criterion is `done` without a proof naming a done delivery check, and no
   producing slice is `done` without a done compile.
 - Started closure slices satisfy their prerequisites.

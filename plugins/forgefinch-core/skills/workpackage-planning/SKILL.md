@@ -23,7 +23,7 @@ tests, and the applicable command profile before planning.
 5. Give each producing slice its `compile` entry from the project profile
    (the Rust compile for testing and implementation, the docs compile for
    documentation) and nothing else; producing slices never carry checks.
-6. Give the delivery slice the project's static gate, its workspace suite, and
+6. Give the delivery slice the project's static gate, its unit tier, its integration tier, and
    the live and destructive proofs the goal needs, plus an empty `review`.
    That live-proof list is the only check decision a package makes. Read
    [project profiles](references/project-profiles.md) for the supported
