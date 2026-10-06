@@ -54,7 +54,8 @@ boundary without moving backend product behavior into it.
 12. For OpenAPI changes, run `just api-contract-check`.
 13. For TypeScript SDK changes, run `just sdk-ts-generate` and
    `just sdk-ts-check`.
-14. For Rust SDK changes, run `just sdk-rust-check`.
+14. For Rust SDK changes, compile with `just compile`; `just check` lints the
+    Rust SDK and the unit tier runs its tests.
 15. For docs/process changes, run `just lint-docs` and
    `just contract-workpackages-check`.
 

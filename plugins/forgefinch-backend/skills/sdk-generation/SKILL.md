@@ -27,7 +27,8 @@ while preserving their boundary as public REST/SSE clients only.
    contract/backend drift.
 3. For TypeScript SDK generation, run `just sdk-ts-generate` and then
    `just sdk-ts-check`.
-4. For Rust SDK or DTO changes, run `just sdk-rust-check`.
+4. For Rust SDK or DTO changes, compile with `just compile`; the Rust SDK's
+   lint runs in `just check` and its tests in the unit tier (`just test`).
 5. For full repo verification, run `just check`.
 6. Keep generated TypeScript files committed with the OpenAPI artifact that
    produced them.
@@ -46,6 +47,7 @@ while preserving their boundary as public REST/SSE clients only.
 
 - SDK runtime, generated code, OpenAPI artifact, package metadata, and tests
   agree.
-- `just sdk-ts-check` and/or `just sdk-rust-check` pass for touched SDKs.
+- `just sdk-ts-check` passes for a touched TypeScript SDK, and a touched Rust
+  SDK passes `just check` and the unit tier.
 - Any required platform route or CLI behavior is tracked in the owning
   workpackage.

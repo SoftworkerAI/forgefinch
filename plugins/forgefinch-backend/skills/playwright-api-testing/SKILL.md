@@ -32,17 +32,41 @@ durable storage.
 4. Run `just test-http-api-playwright-check` when changing the Playwright
    package, helpers, tests, public API response schemas, or guidance that
    affects live HTTP API tests.
-5. Run `just test-http-api-playwright` before completing a public API slice
-   that changes behavior requiring a real HTTP boundary. The suite defaults to
-   `the configured local backend URL`; set `BACKEND_API_BASE_URL=<url>` only when
-   targeting a non-default API address.
+5. A producing slice only compiles its tests (`tsc --noEmit` and
+   `npm test -- --list` through `just test-http-api-playwright-check`); it
+   never runs the live suite. `just test-http-api-playwright` runs once, in
+   the delivery checks, against the relaunched local environment. The suite
+   defaults to the configured local backend URL; set
+   `BACKEND_API_BASE_URL=<url>` only when targeting a non-default API address.
+   Separate dev-local journeys with their own configuration stay out of the
+   reference suite's projects.
 6. Build requests from documented headers: authorization, tenant id, actor
    kind, actor id, correlation id, and idempotency key for commands.
 7. Fetch the live OpenAPI document and validate successful JSON responses
    against the documented operation response schema before semantic assertions.
 8. Keep scenarios stateful but isolated: generate unique ids/slugs, run workers
    serially when shared durable state is involved, and avoid assuming a clean
-   database unless the check setup explicitly resets it.
+   database unless the check setup explicitly resets it. Place each spec in
+   the right project and phase:
+   - Specs that read only checked files and send no request belong to the
+     `static` project, which the static gate runs; every other spec is
+     `live`.
+   - Tag a live test for the parallel phase only when the API refuses its
+     request before resolving any target (missing context, a malformed or
+     unknown identifier, an invalid body), so it reads and changes no shared
+     state. Everything else runs in the serial phase.
+   - Setup a test needs is its own: derive keys and names per test, never a
+     fixed key shared across tests. Parallel workers sending one shared
+     governed setup command race over its single Approval. A test that
+     resends one request (replay, conflict) reuses what its first send
+     prepared.
+   - Sign-ins against the local identity provider are serialized across
+     workers and their tokens shared, since concurrent step-up sign-ins fail
+     there; route every new sign-in through that one helper.
+   - Governed commands may need a reviewer's Approval and a fresh
+     multi-factor session: approve as a second persona, resend the identical
+     command under the same idempotency key, and renew a session before it
+     outlives the freshness window.
 9. Assert the application invariant directly: durable read-after-write,
    idempotent replay, cross-tenant denial or absence, pagination shape, safe
    error envelope, audit/evidence reference, or dependency-unavailable

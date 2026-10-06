@@ -35,7 +35,8 @@ backend route behavior or product semantics into this boundary.
    validation.
 6. Run `just api-contract-check` after OpenAPI edits.
 7. If the change affects generated clients, run `just sdk-ts-generate`,
-   `just sdk-ts-check`, and `just sdk-rust-check` as applicable.
+   and `just sdk-ts-check`; a Rust SDK change is proven by `just check` and
+   the unit tier.
 
 ## Guardrails
 

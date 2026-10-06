@@ -14,7 +14,7 @@ CLAUDE_MARKETPLACE = ROOT / ".claude-plugin/marketplace.json"
 EXPECTED = [
     ("forgefinch-core", 7, "0.1.0"),
     ("forgefinch-client", 21, "0.1.0"),
-    ("forgefinch-backend", 66, "0.1.0"),
+    ("forgefinch-backend", 66, "0.1.1"),
 ]
 FORBIDDEN_COMPONENT_KEYS = {"apps", "hooks", "mcpServers"}
 FORBIDDEN_PUBLIC_TEXT = re.compile(
