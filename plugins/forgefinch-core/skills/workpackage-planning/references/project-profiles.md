@@ -20,7 +20,7 @@ Every project profile names these recipes:
 - Workpackage validation: the repository-owned schema check, which the static
   gate includes.
 
-Example: the Softworker platform names `just compile` and `just compile-docs`
+Example: a project might name `just compile` and `just compile-docs`
 for the producing slices, `just check`, `just test`, and `just test-integration` for delivery, and live
 recipes such as `just test-http-api-playwright` and `just dev-smoke`. Examples
 are not defaults. If a project has no single static gate or no single
