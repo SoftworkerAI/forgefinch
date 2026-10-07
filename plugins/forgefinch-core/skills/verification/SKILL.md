@@ -24,6 +24,9 @@ workpackage spec, repository commands, and applicable product skills.
 - Close each criterion with a `proof` naming the delivery check that
   established it or the executed test or run that check produced. A criterion
   a check did not establish stays `todo`, and a failing proof is a defect.
+- When the repository keeps a product backlog, record review findings
+  outside the goal as backlog items, and on completion close the backlog
+  items the package claims as the process docs define.
 - Mark delivery `done` only when the review is recorded, every check is
   resolved with evidence, and every criterion in every slice is `done` with
   proof.

@@ -41,4 +41,7 @@ Use `$workpackage-planning`,
   slices are done.
 - A behavior defect uses `[defect-open]`, reopens the producing slice that
   owns the criterion, and resets delivery to `todo` until proven again.
+- When the repository keeps a product backlog, planning starts from it,
+  deferred product scope is added to it, and delivery closes the items the
+  package claimed; backlog IDs stay out of product code and commits.
 - Do not claim a command passed unless it was executed and passed.

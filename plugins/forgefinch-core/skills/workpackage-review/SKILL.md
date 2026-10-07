@@ -25,6 +25,10 @@ Check that:
 - Product architecture, security, privacy, accessibility, contract, and test
   boundaries are covered where applicable.
 - No open `[defect-open]` marker is hidden by a completion claim.
+- When the repository keeps a product backlog, the backlog items the package
+  claims are listed and carry the package as their delivering workpackage,
+  deferred product scope is recorded as backlog items, and a complete package
+  has closed its items.
 
 Do not call a package complete when required evidence is missing or a product
 boundary has not been proven.

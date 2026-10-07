@@ -28,7 +28,13 @@ tests, and the applicable command profile before planning.
    That live-proof list is the only check decision a package makes. Read
    [project profiles](references/project-profiles.md) for the supported
    project commands.
-7. Run the repository's workpackage validator.
+7. When the repository keeps a product backlog, as defined by its process
+   docs, start from it: claim the items the package closes, record their IDs
+   where the process docs say (for example an optional `backlog_items`
+   field), and mark them planned with the delivering workpackage. Add every
+   deferred product behavior from `scope.out` or the non-goals as a new
+   backlog item, or link it to the existing one.
+8. Run the repository's workpackage validator.
 
 The complete schema and state invariants are in
 [schema v6](references/schema-v6.md). Reusable files live in `assets/`; start
