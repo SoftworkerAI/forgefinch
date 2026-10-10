@@ -21,15 +21,15 @@ backend route behavior or product semantics into this boundary.
 
 ## Workflow
 
-1. Read `AGENTS.md`, `docs/architecture/api-contract-repo.md`, and the active
-   workpackage record under `docs/workpackages/` when present.
+1. Read `AGENTS.md`, `docs/architecture/api-contract-repo.md`, and the spec for
+   this work when one exists.
 2. Confirm the OpenAPI change is only contract/source-of-truth work. Backend
    route handlers, persistence, policy, audit, evidence, and projections remain
    in platform route and domain crates.
 3. Use repository-defined variables such as `CONTRACT_ROOT` and
    `OPENAPI_BUNDLE` for paths in scripts, docs, and checks.
 4. Keep operation IDs stable unless the platform route intentionally changes
-   behavior and the coordinated workpackage names the compatibility impact.
+   behavior and the same change names the compatibility impact.
 5. Keep safe error, auth, tenant context, idempotency, pagination, and SSE
    metadata explicit enough for generated SDKs and Playwright response-schema
    validation.
@@ -52,5 +52,4 @@ backend route behavior or product semantics into this boundary.
   SDK inputs agree.
 - The relevant `just` checks pass or are recorded as skipped with a concrete
   reason.
-- Any backend behavior dependency is captured in the coordinated platform
-  workpackage.
+- Any backend behavior dependency is captured in the same change.

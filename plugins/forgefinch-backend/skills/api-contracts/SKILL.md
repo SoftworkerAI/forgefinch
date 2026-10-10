@@ -21,11 +21,11 @@ boundary without moving backend product behavior into it.
 
 ## Workflow
 
-1. Read `AGENTS.md`, `docs/architecture/api-contract-repo.md`, and the active
-   workpackage record under `docs/workpackages/` when present.
+1. Read `AGENTS.md`, `docs/architecture/api-contract-repo.md`, and the spec for
+   this work when one exists.
 2. Confirm the change belongs in the contract/SDK distribution boundary. If it
    changes backend route behavior, policy, persistence, audit, evidence, or
-   projections, coordinate the owning platform slice rather than implementing
+   projections, coordinate with the owning platform change rather than implementing
    that behavior here.
 3. Use repository-defined variables such as `CONTRACT_ROOT` and
    `OPENAPI_BUNDLE` rather than hardcoded ad hoc paths.
@@ -56,8 +56,7 @@ boundary without moving backend product behavior into it.
    `just sdk-ts-check`.
 14. For Rust SDK changes, compile with `just compile`; `just check` lints the
     Rust SDK and the unit tier runs its tests.
-15. For docs/process changes, run `just lint-docs` and
-   `just contract-workpackages-check`.
+15. For docs/process changes, run `just lint-docs`.
 
 ## Guardrails
 
@@ -102,5 +101,5 @@ boundary without moving backend product behavior into it.
   router.
 - The relevant `just` checks pass or are recorded as skipped with a concrete
   reason.
-- Backend behavior changes are coordinated in the owning platform workpackage,
+- Backend behavior changes are coordinated in the owning platform change,
   not silently absorbed in SDK code.

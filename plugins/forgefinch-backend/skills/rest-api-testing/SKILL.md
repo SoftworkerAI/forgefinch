@@ -1,6 +1,6 @@
 ---
 name: rest-api-testing
-description: "Use for REST, SCIM, and SSE-over-HTTP API testing strategy inside a workpackage or slice, with one tool per layer: backend server route tests, api-contracts, API client unit/request tests, public CLI tests, and Playwright for live HTTP E2E/API scenarios."
+description: "Use for REST, SCIM, and SSE-over-HTTP API testing strategy, with one tool per layer: backend server route tests, api-contracts, API client unit/request tests, public CLI tests, and Playwright for live HTTP E2E/API scenarios."
 ---
 
 # rest-api-testing
@@ -13,17 +13,15 @@ second source of truth.
 
 ## Use This Skill When
 
-- A workpackage or slice adds or changes public REST, SCIM, or SSE-over-HTTP
-  behavior.
-- A slice needs REST API contract, route, SDK, CLI, or live HTTP E2E/API test
+- The work adds or changes public REST, SCIM, or SSE-over-HTTP behavior.
+- The work needs REST API contract, route, SDK, CLI, or live HTTP E2E/API test
   strategy.
 - A local check, review, or design choice needs this specialty.
 
 ## Workflow
 
-1. Read `AGENTS.md`, `docs/process/WORKPACKAGE_SYSTEM.md`,
-   `docs/process/BOOKKEEPING.md`, the active workpackage YAML file, API
-   architecture docs, and nearby route, contract, SDK, CLI, and test code.
+1. Read `AGENTS.md`, the API architecture docs, the spec for this work when
+   one exists, and nearby route, contract, SDK, CLI, and test code.
 2. Choose the smallest testing layer that proves the behavior:
    - In-process route tests: use Rust axum/tower-style router tests for route
      metadata, request context, idempotency, safe errors, and redaction.
@@ -54,8 +52,8 @@ second source of truth.
    same Playwright API scenario against the production-shaped and lightweight
    compositions and compare results using only an explicit allowed-capability
    difference manifest.
-6. Record the selected tool layer, why it applies, expected commands, skipped
-   layers with reasons, and failure modes in the owning slice entry.
+6. Report the selected tool layer, why it applies, expected commands, skipped
+   layers with reasons, and failure modes.
 7. Pin any newly introduced CLI tool, Cargo crate, Docker image, or CI action
    before adding it to the repo or CI.
 
@@ -64,7 +62,7 @@ second source of truth.
 - Selected REST API testing layers and why they apply.
 - Affected route, contract, SDK, CLI, Compose, or adapter files.
 - Expected local checks and skipped test layers with reasons.
-- Open questions and next slice needs.
+- Open questions.
 
 ## Guardrails
 
@@ -86,13 +84,11 @@ second source of truth.
   core-versus-pack differences are external capability availability, not
   route, identity, policy, persistence, or DTO semantics.
 - Do not add unpinned tools, images, actions, or dependencies.
-- Do not broaden the slice beyond the workpackage acceptance criteria.
 
 ## Done Means
 
-- Each public API slice has explicit route, contract, SDK, CLI, and Playwright
+- Each public API change has explicit route, contract, SDK, CLI, and Playwright
   live HTTP checks where applicable.
-- Tool choices are recorded in the slice entry or current task.
+- Tool choices are reported.
 - Required checks are named and results are recorded.
-- The selected slice entry or current task can show what changed and what
-  remains.
+- The report shows what changed and what remains.

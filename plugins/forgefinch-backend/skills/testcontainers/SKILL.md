@@ -1,51 +1,48 @@
 ---
 name: testcontainers
-description: Use for Rust integration tests with Testcontainers and service wait strategies inside a workpackage or slice.
+description: Use for Rust integration tests with Testcontainers and service wait strategies.
 ---
 
 # testcontainers
 
 ## Purpose
 
-Support Rust integration tests with Testcontainers and service wait strategies inside the active workpackage.
+Support Rust integration tests with Testcontainers and service wait strategies.
 
 ## Use This Skill When
 
-- The current workpackage or slice touches Rust integration tests with Testcontainers and service wait strategies.
+- The current work touches Rust integration tests with Testcontainers and service wait strategies.
 - A local check, review, or design choice needs this specialty.
 
 ## Workflow
 
-1. Read `AGENTS.md`, `docs/process/WORKPACKAGE_SYSTEM.md`, the active workpackage YAML file when present, and nearby code or docs.
-2. Confirm which acceptance criteria and slice this work supports.
-3. Inspect existing architecture, boundaries, contracts, tests, and local service config before changing files.
-4. For REST API integration tests, use Testcontainers when behavior needs real
+1. Read `AGENTS.md`, the relevant architecture docs, and nearby code, including existing boundaries, contracts, tests, and local service config.
+2. If a spec exists for this work, read it.
+3. For REST API integration tests, use Testcontainers when behavior needs real
    Postgres or service substrates and prefer explicit wait strategies over
    sleeps.
-5. Keep public API assertions on the backend server flowing through
+4. Keep public API assertions on the backend server flowing through
    the API client or the public CLI even when dependencies are containerized.
-6. Implement or review only the behavior needed for the selected slice.
-7. Run targeted local checks when practical and record command names, results, changed files, and open questions.
+5. Do the work within the repository's boundaries.
+6. Run the repository's checks that apply and report what ran.
 
 ## Required Output
 
-- Workpackage or slice summary.
 - Affected files, crates, services, schemas, policies, prompts, or docs.
 - Containerized dependency and wait-strategy choices for REST API checks.
 - Local checks run, skipped with reason, or still needed.
-- Open questions and next slice needs.
+- Open questions.
 
 ## Guardrails
 
 - Keep application semantics inside application-owned code and schemas.
 - Keep external services behind ports, adapters, typed config, and local checks.
 - Keep security, identity, data ownership, and audit boundaries explicit when they are relevant.
-- Do not broaden the slice beyond the workpackage acceptance criteria.
 - Do not add later-environment planning unless the user asks for it.
 
 ## Done Means
 
-- The slice behavior is present or the review finding is explicit.
+- The behavior is present or the review finding is explicit.
 - Required local checks are named and results are recorded.
 - Architecture docs are updated when architecture truth changes.
-- The selected slice entry or current task can show what changed and what remains.
+- The report shows what changed and what remains.

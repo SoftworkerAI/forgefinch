@@ -14,14 +14,14 @@ durable storage.
 
 ## Use This Skill When
 
-- A slice needs live HTTP coverage beyond in-process Rust route tests.
+- The work needs live HTTP coverage beyond in-process Rust route tests.
 - A public REST or SCIM scenario should prove persistence, idempotency,
   pagination, safe errors, or tenant isolation through the documented API.
 - A local check, review, or design choice needs this specialty.
 
 ## Workflow
 
-1. Read `AGENTS.md`, the active workpackage YAML file, the OpenAPI bundle from
+1. Read `AGENTS.md`, the spec for this work when one exists, the OpenAPI bundle from
    `OPENAPI_BUNDLE` or
    the repository-owned OpenAPI bundle, and the
    existing tests under `tests/http-api-playwright`.
@@ -32,10 +32,10 @@ durable storage.
 4. Run `just test-http-api-playwright-check` when changing the Playwright
    package, helpers, tests, public API response schemas, or guidance that
    affects live HTTP API tests.
-5. A producing slice only compiles its tests (`tsc --noEmit` and
-   `npm test -- --list` through `just test-http-api-playwright-check`); it
-   never runs the live suite. `just test-http-api-playwright` runs once, in
-   the delivery checks, against the relaunched local environment. The suite
+5. While authoring, compile the tests (`tsc --noEmit` and
+   `npm test -- --list` through `just test-http-api-playwright-check`). Run
+   the live suite with `just test-http-api-playwright` against the local
+   environment, following the repository's rules about when to run it. The suite
    defaults to the configured local backend URL; set
    `BACKEND_API_BASE_URL=<url>` only when targeting a non-default API address.
    Separate dev-local journeys with their own configuration stay out of the
@@ -75,15 +75,14 @@ durable storage.
    `api-contracts` contract truth, the API client request
    construction, the public CLI command formatting, or docs-only edits unless live
    HTTP product behavior changes too.
-11. Record commands and required environment variables in the owning
-   workpackage slice.
+11. Report the commands and required environment variables.
 
 ## Resource Operation Case Matrix
 
 When covering a resource family, choose cases by operation shape and the
 documented OpenAPI semantics. Keep endpoint-contract coverage in resource specs;
 put cross-resource user journeys in scenario specs, which may belong to a
-separate workpackage.
+separate change.
 
 - `list`: valid default page, valid `page_limit`, invalid `page_limit`,
   invalid cursor, and tenant isolation for absent cross-tenant items.
@@ -102,7 +101,7 @@ separate workpackage.
 - SSE endpoints: valid connect, valid `Last-Event-ID`, unauthorized access,
   and tenant isolation for streamed events.
 
-For broad OpenAPI coverage workpackages, keep a manifest that maps each
+For broad OpenAPI coverage work, keep a manifest that maps each
 `operationId` to an owning resource spec and its covered case categories.
 Live Playwright runs should fail for documented operations that are missing,
 unimplemented, routed incorrectly, or returning bodies that do not match the

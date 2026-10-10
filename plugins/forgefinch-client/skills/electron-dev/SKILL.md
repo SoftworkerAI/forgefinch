@@ -100,8 +100,8 @@ scripts/
 - `<desktop-app-root>/src/renderer/src/components`, `hooks`, `stores`, `styles`, and `domain` own reusable browser-safe renderer code.
 - `<desktop-app-root>/src/renderer/src/mocks` owns sample data for prototype UI, demos, and tests.
 - `<desktop-app-root>/tests/e2e` owns Playwright Electron app flows.
-- `<desktop-app-root>/native/local-executor/` owns local executor Rust code when a selected
-  workpackage adds Local Executor implementation.
+- `<desktop-app-root>/native/local-executor/` owns local executor Rust code when the
+  work adds Local Executor implementation.
 
 ## Capability Placement Matrix
 
@@ -179,7 +179,7 @@ What changes when:
 | Need | Modify |
 | --- | --- |
 | Start/stop/supervise the Local Executor process | `<desktop-app-root>/src/main/services`, main-process tests, `<desktop-app-root>/tests/e2e` when startup behavior is visible |
-| Change the local HTTP/SSE wire shape | Rust contracts/API tests and Electron main parser tests in the same slice |
+| Change the local HTTP/SSE wire shape | Rust contracts/API tests and Electron main parser tests in the same change |
 | Add renderer status or progress | `<desktop-app-root>/src/shared` redacted types, preload API, renderer feature state/UI, component tests |
 | Add a new local action | Rust runtime/contracts, Electron main action adapter, backend grant/reconciliation behavior, approval/progress UI |
 | Add file/browser/tool access | grant validation, explicit user approval, redaction, privacy tests, security validator, and E2E when user-visible |

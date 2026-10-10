@@ -20,8 +20,8 @@ published package or crate outputs.
 
 ## Workflow
 
-1. Read `AGENTS.md`, `docs/runbooks/api-contract-release.md`, and the active
-   workpackage record under `docs/workpackages/` when present.
+1. Read `AGENTS.md`, `docs/runbooks/api-contract-release.md`, and the spec for
+   this work when one exists.
 2. Run the smallest check set for the touched surface; run `just check` before
    declaring artifacts ready for consumer handoff.
 3. Record the platform commit SHA or package version used for downstream

@@ -1,36 +1,35 @@
 ---
 name: contract-testing
-description: Use for contracts for APIs, events, policies, tools, connectors, model outputs, and adapters inside a workpackage or slice.
+description: Use for contracts for APIs, events, policies, tools, connectors, model outputs, and adapters.
 ---
 
 # contract-testing
 
 ## Purpose
 
-Support contracts for APIs, events, policies, tools, connectors, model outputs, and adapters inside the active workpackage.
+Support contracts for APIs, events, policies, tools, connectors, model outputs, and adapters.
 
 ## Use This Skill When
 
-- The current workpackage or slice touches contracts for APIs, events, policies, tools, connectors, model outputs, and adapters.
+- The current work touches contracts for APIs, events, policies, tools, connectors, model outputs, and adapters.
 - A local check, review, or design choice needs this specialty.
 
 ## Workflow
 
-1. Read `AGENTS.md`, `docs/process/WORKPACKAGE_SYSTEM.md`, the active workpackage YAML file when present, and nearby code or docs.
-2. Confirm which acceptance criteria and slice this work supports.
-3. Inspect existing architecture, boundaries, contracts, tests, and local service config before changing files.
-4. For public REST, SCIM, SSE-over-HTTP, or other HTTP API behavior, confirm
-   the same coordinated workpackage owns OpenAPI/route drift tests and DTO
+1. Read `AGENTS.md`, the relevant architecture docs, and nearby code, including existing boundaries, contracts, tests, and local service config.
+2. If a spec exists for this work, read it.
+3. For public REST, SCIM, SSE-over-HTTP, or other HTTP API behavior, confirm
+   the same change owns OpenAPI/route drift tests and DTO
    examples in the repository-owned API contract package, the API client SDK method coverage,
    and the public CLI command coverage.
-5. For user-facing SSE behavior, confirm SDK SSE reconnect helper tests and
-   `public CLI watch ...` command tests are part of the same workpackage.
-6. Choose REST API test tools by layer: backend server route tests for internal
+4. For user-facing SSE behavior, confirm SDK SSE reconnect helper tests and
+   `public CLI watch ...` command tests are part of the same change.
+5. Choose REST API test tools by layer: backend server route tests for internal
    route logic, the repository-owned API contract package for contract
    truth, the API client unit/request tests for SDK correctness, the public CLI tests
    for CLI correctness, and Playwright as the only live HTTP E2E/API scenario
    runner.
-7. For query/read-model work, add tests for ordinary and privileged callers,
+6. For query/read-model work, add tests for ordinary and privileged callers,
    cross-tenant denial, canonical collection uniqueness, field provenance,
    resource-scoped persistence queries, snapshot consistency, explicit
    capability/version discovery, and unknown-route versus concealed-resource
@@ -39,19 +38,18 @@ Support contracts for APIs, events, policies, tools, connectors, model outputs, 
    and prove core identity/Workspace data remains successful while affected
    capabilities are explicitly unavailable; separately prove the entitlement
    endpoint still fails closed.
-8. Prove runtime route reachability from the constructed production router;
+7. Prove runtime route reachability from the constructed production router;
    OpenAPI, generated SDK, catalog, or handler-symbol presence alone is not
    implementation evidence.
-9. When optional integration availability is in scope, run the same public
+8. When optional integration availability is in scope, run the same public
    contract scenarios with the pack absent and present, verify only explicit
    capability differences, and scan production product modules for fixture
    branches or values.
-10. Implement or review only the behavior needed for the selected slice.
-11. Run targeted local checks when practical and record command names, results, changed files, and open questions.
+9. Do the work within the repository's boundaries.
+10. Run the repository's checks that apply and report what ran.
 
 ## Required Output
 
-- Workpackage or slice summary.
 - Affected files, crates, services, schemas, policies, prompts, or docs.
 - Public API contract coverage, when applicable: OpenAPI route drift and DTO
   examples in the repository-owned API contract package, SDK request
@@ -60,7 +58,7 @@ Support contracts for APIs, events, policies, tools, connectors, model outputs, 
   Playwright live HTTP scenarios.
 - REST API test tool-layer choices and skipped layers with reasons.
 - Local checks run, skipped with reason, or still needed.
-- Open questions and next slice needs.
+- Open questions.
 
 ## Guardrails
 
@@ -79,12 +77,11 @@ Support contracts for APIs, events, policies, tools, connectors, model outputs, 
 - Do not name shared public API implementations for a consuming client.
 - Do not accept a zero-drift ledger unless production-router reachability is
   part of the evidence.
-- Do not broaden the slice beyond the workpackage acceptance criteria.
 - Do not add later-environment planning unless the user asks for it.
 
 ## Done Means
 
-- The slice behavior is present or the review finding is explicit.
+- The behavior is present or the review finding is explicit.
 - Required local checks are named and results are recorded.
 - Architecture docs are updated when architecture truth changes.
-- The selected slice entry or current task can show what changed and what remains.
+- The report shows what changed and what remains.

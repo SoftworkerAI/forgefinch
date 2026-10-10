@@ -103,8 +103,7 @@ cargo clippy --manifest-path <desktop-app-root>/native/local-executor/Cargo.toml
 cargo test --manifest-path <desktop-app-root>/native/local-executor/Cargo.toml
 ```
 
-Run `pnpm lint` after skill/doc changes and `pnpm workpackages:check` after
-workpackage file changes.
+Run `pnpm lint` after skill/doc changes.
 
 ## Done Means
 

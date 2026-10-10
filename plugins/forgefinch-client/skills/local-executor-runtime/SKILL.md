@@ -31,7 +31,7 @@ is planned, implemented, or reviewed.
 - local executor-backed actions require backend-backed scoped grants and visible user
   approval when policy requires approval.
 - MVP Local Executor work must not add offline durable queues or local product state
-  unless a later workpackage explicitly expands scope.
+  unless a later decision explicitly expands scope.
 
 ## Repo Placement
 
@@ -55,7 +55,7 @@ Use loopback HTTP plus SSE first:
 - `POST /v1/local-actions/{actionId}/cancel`
 - `GET /v1/events`
 
-Do not switch to WebSocket or gRPC without a workpackage decision covering
+Do not switch to WebSocket or gRPC without a recorded decision covering
 lifecycle, backpressure, cancellation, auth, packaging impact, and tests.
 
 ## Planning Checklist
@@ -95,10 +95,10 @@ contracts moving together:
 
 ## Implementation Workflow
 
-1. Define or select the workpackage slice before adding Local Executor code.
+1. For broad work, read or write the spec before adding Local Executor code.
 2. Add Rust contracts and tests before wiring Electron main lifecycle code.
 3. For contract changes, update Rust DTO/route coverage and Electron
-   client/parser coverage in the same slice when Electron consumes the shape.
+   client/parser coverage in the same change when Electron consumes the shape.
 4. Keep Local Executor clients in main-process services; expose only renderer-safe
    derived state through existing Electron IPC/preload patterns when needed.
 5. Keep platform-truth operations in TypeScript platform adapters/services, not

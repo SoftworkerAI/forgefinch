@@ -49,5 +49,4 @@ while preserving their boundary as public REST/SSE clients only.
   agree.
 - `just sdk-ts-check` passes for a touched TypeScript SDK, and a touched Rust
   SDK passes `just check` and the unit tier.
-- Any required platform route or CLI behavior is tracked in the owning
-  workpackage.
+- Any required platform route or CLI behavior is tracked in the same change.

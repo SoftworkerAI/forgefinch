@@ -14,7 +14,7 @@ to the desktop Local Executor workspace.
 
 - Rust code lives under `<desktop-app-root>/native/local-executor/`.
 - The Local Executor is a local execution node, not the backend/cloud API.
-- Do not add Rust elsewhere in the desktop repo without a workpackage decision.
+- Do not add Rust elsewhere in the desktop repo without a recorded decision.
 - Do not add path dependencies to the sibling backend project repository.
 
 Use with:
@@ -22,14 +22,13 @@ Use with:
 - `local-executor-runtime` for Local Executor behavior and Electron ownership.
 - `rust-crate-architecture` for workspace, crate, and dependency boundaries.
 - `rust-contract-testing` for HTTP/SSE DTOs, route behavior, and safe errors.
-- `testing` and `verification` for checks and completion evidence.
+- `testing` for checks and completion evidence.
 
 ## Required Workflow
 
-1. Read `AGENTS.md`, `agent-workflow`, `local-executor-runtime`, the active
-   workpackage YAML/spec when present, and nearby Rust code/tests.
-2. Confirm the selected slice, acceptance criteria, and process boundary before
-   editing.
+1. Read `AGENTS.md`, `agent-workflow`, `local-executor-runtime`, the spec for
+   this work when one exists, and nearby Rust code/tests.
+2. Confirm the process boundary before editing.
 3. Keep Rust 2024, the pinned Rust toolchain, tracked `Cargo.lock`, and
    `#![forbid(unsafe_code)]`.
 4. Keep app roots thin: `main.rs` is startup glue and `lib.rs` is crate docs,
@@ -41,10 +40,10 @@ Use with:
 6. Return safe error envelopes across local HTTP/SSE boundaries. Never expose
    secrets, raw local paths, authorization headers, environment variables,
    command lines, raw tool payloads, or stack traces.
-7. Add or update tests close to the Rust behavior before claiming the slice is
+7. Add or update tests close to the Rust behavior before claiming the work is
    complete.
-8. Keep the selected slice narrow; do not add generic tool execution, durable
-   queues, platform persistence, or packaging unless the workpackage owns it.
+8. Keep the change narrow; do not add generic tool execution, durable
+   queues, platform persistence, or packaging unless the work calls for it.
 
 ## Rust Implementation Rules
 
@@ -68,7 +67,7 @@ Use with:
 - Prefer platform-aligned crates already chosen for the workspace.
 - Do not add Postgres, SQLx, Restate, OPA/OpenFGA, Vault, object storage,
   durable queue, browser automation, shell execution, or generic tool runner
-  dependencies unless a later workpackage explicitly expands scope.
+  dependencies unless a later decision explicitly expands scope.
 - Before adding a Rust dependency, record why it is needed, which crate imports
   it, runtime/security impact, and the checks that prove it.
 
@@ -82,8 +81,7 @@ cargo clippy --manifest-path <desktop-app-root>/native/local-executor/Cargo.toml
 cargo test --manifest-path <desktop-app-root>/native/local-executor/Cargo.toml
 ```
 
-Also run `pnpm workpackages:check` when workpackage files change and `pnpm
-lint` when docs or skills change.
+Also run `pnpm lint` when docs or skills change.
 
 ## Done Means
 

@@ -1,6 +1,0 @@
-interface:
-  display_name: "Slice Execution"
-  short_description: "Implement one workpackage slice safely"
-  default_prompt: "Use $slice-execution to implement the selected slice."
-policy:
-  allow_implicit_invocation: true

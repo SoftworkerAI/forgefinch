@@ -52,8 +52,7 @@ The renderer never consumes Local Executor HTTP/SSE contracts directly.
   environment variables, raw browser/file data, raw tool payloads, or stack
   traces in responses or events.
 - Version or compatibility-impacting contract changes must update architecture
-  docs, the active workpackage acceptance criteria, Rust route tests, and Electron parser tests
-  in the same slice.
+  docs, Rust route tests, and Electron parser tests in the same change.
 
 ## Testing Layers
 
