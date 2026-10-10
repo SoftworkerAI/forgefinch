@@ -17,9 +17,9 @@ same three skill trees.
   `AGENTS.md`, nearby code, and project-owned documentation instead of assuming
   a fixed checkout.
 - Never add secrets, credentials, private endpoints, generated caches, personal
-  agent configuration, or project-owned workpackage records.
-- Core owns reusable workflow and schema-v4 workpackage behavior. Optional packs
-  must not duplicate those skills.
+  agent configuration, or project-owned workpackage specs.
+- Core owns the reusable workflow and free-form workpackage spec guidance.
+  Optional packs must not duplicate those skills.
 - Installing a plugin never copies or merges project instructions.
 
 ## Required validation

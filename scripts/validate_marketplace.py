@@ -12,9 +12,9 @@ ROOT = Path(__file__).resolve().parents[1]
 CODEX_MARKETPLACE = ROOT / ".agents/plugins/marketplace.json"
 CLAUDE_MARKETPLACE = ROOT / ".claude-plugin/marketplace.json"
 EXPECTED = [
-    ("forgefinch-core", 7, "0.1.0"),
-    ("forgefinch-client", 21, "0.1.0"),
-    ("forgefinch-backend", 66, "0.1.1"),
+    ("forgefinch-core", 2, "0.1.1"),
+    ("forgefinch-client", 21, "0.1.1"),
+    ("forgefinch-backend", 66, "0.1.2"),
 ]
 FORBIDDEN_COMPONENT_KEYS = {"apps", "hooks", "mcpServers"}
 FORBIDDEN_PUBLIC_TEXT = re.compile(
@@ -152,14 +152,14 @@ def main() -> int:
                 assert f"${declared_name}" in metadata_text, metadata
         total_skills += len(skill_roots)
 
-    assert total_skills == 94
+    assert total_skills == 89
     assert not (ROOT / "plugins/forgefinch-client/skills/react-best-practices").exists()
     assert not (ROOT / "docs/workpackages").exists()
     validate_public_tree()
 
     print(
         "Forgefinch marketplace parity, public naming, unique skills, links, "
-        "assets, and all 94 skills passed."
+        "assets, and all 89 skills passed."
     )
     return 0
 

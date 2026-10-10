@@ -7,7 +7,7 @@ and Claude Code. Both hosts consume the same skill implementations.
 
 | Plugin | Purpose | Skills |
 | --- | --- | ---: |
-| `forgefinch-core` | General planning, acceptance criteria, implementation, review, verification, and schema-v4 workpackages | 7 |
+| `forgefinch-core` | General development workflow and free-form spec writing | 2 |
 | `forgefinch-client` | Optional Electron, React, Next.js, TypeScript, accessibility, testing, and desktop local-runtime guidance | 21 |
 | `forgefinch-backend` | Optional Rust services, APIs, persistence, security, infrastructure, testing, and agentic-system guidance | 66 |
 
@@ -80,7 +80,7 @@ Codex can select installed skills from their descriptions or accept an explicit
 generic skill name:
 
 ```text
-Use $workpackage-planning to plan this change.
+Use $spec-writing to write the spec for this change.
 Use $electron-dev to review this desktop boundary.
 Use $service-integration to plan this backend dependency.
 ```
@@ -88,7 +88,7 @@ Use $service-integration to plan this backend dependency.
 Claude uses the plugin namespace for explicit slash commands:
 
 ```text
-/forgefinch-core:workpackage-planning
+/forgefinch-core:spec-writing
 /forgefinch-client:electron-dev
 /forgefinch-backend:service-integration
 ```
@@ -132,10 +132,12 @@ claude --plugin-dir ./plugins/forgefinch-core \
 
 ## Workpackages
 
-Core includes reusable schema-v4 templates, semantic validation, and workflow
-guidance. Adopt the shared `AGENTS.md` template explicitly, then keep actual
-workpackage records, specifications, commands, and product rules in the
-project repository.
+A workpackage is one free-form Markdown spec,
+`docs/workpackages/WP-NNNN-short-title.spec.md` in the project repository,
+that says what will be built and how it will be checked. There is no YAML
+record, schema, or status bookkeeping. Core's `spec-writing` skill describes
+it; adopt the shared `AGENTS.md` template explicitly, and keep specs, commands,
+and product rules in the project repository.
 
 ## License
 

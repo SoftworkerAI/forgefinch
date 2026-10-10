@@ -1,0 +1,6 @@
+interface:
+  display_name: "Spec Writing"
+  short_description: "Write a free-form workpackage spec"
+  default_prompt: "Use $spec-writing to write the spec for this work."
+policy:
+  allow_implicit_invocation: true

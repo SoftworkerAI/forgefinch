@@ -31,10 +31,6 @@ if [[ -n "${CLAUDE_BIN:-}" ]] || command -v claude >/dev/null 2>&1; then
   "$repository_root/scripts/validate-claude.sh"
 fi
 
-planning_skill="$repository_root/plugins/forgefinch-core/skills/workpackage-planning"
-"${python_runtime[@]}" "$planning_skill/tests/test_workpackage_schema.py"
-"${python_runtime[@]}" "$planning_skill/tests/test_validate_workpackages.py"
-
 if find "$repository_root/plugins" -type d \( -name __pycache__ -o -name agents \) \
   ! -path '*/forgefinch-core/skills/*/agents' -print -quit | grep -q .; then
   echo "Unexpected generated cache or legacy agent metadata found." >&2
