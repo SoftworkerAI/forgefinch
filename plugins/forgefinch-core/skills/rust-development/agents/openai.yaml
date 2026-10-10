@@ -1,0 +1,6 @@
+interface:
+  display_name: "Rust Development"
+  short_description: "Write, refactor, and review Rust code"
+  default_prompt: "Use $rust-development for this Rust change."
+policy:
+  allow_implicit_invocation: true

@@ -12,9 +12,9 @@ ROOT = Path(__file__).resolve().parents[1]
 CODEX_MARKETPLACE = ROOT / ".agents/plugins/marketplace.json"
 CLAUDE_MARKETPLACE = ROOT / ".claude-plugin/marketplace.json"
 EXPECTED = [
-    ("forgefinch-core", 2, "0.1.1"),
+    ("forgefinch-core", 3, "0.1.1"),
     ("forgefinch-client", 21, "0.1.1"),
-    ("forgefinch-backend", 16, "0.1.2"),
+    ("forgefinch-backend", 15, "0.1.2"),
 ]
 FORBIDDEN_COMPONENT_KEYS = {"apps", "hooks", "mcpServers"}
 FORBIDDEN_PUBLIC_TEXT = re.compile(
