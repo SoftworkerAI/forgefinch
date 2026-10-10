@@ -9,7 +9,7 @@ and Claude Code. Both hosts consume the same skill implementations.
 | --- | --- | ---: |
 | `forgefinch-core` | General development workflow and free-form spec writing | 2 |
 | `forgefinch-client` | Optional Electron, React, Next.js, TypeScript, accessibility, testing, and desktop local-runtime guidance | 21 |
-| `forgefinch-backend` | Optional Rust services, APIs, persistence, security, infrastructure, testing, and agentic-system guidance | 66 |
+| `forgefinch-backend` | Optional Rust services, APIs, persistence, security, infrastructure, testing, and agentic-system guidance | 16 |
 
 Install Core plus the optional pack that matches the repository. The packs do
 not copy project instructions into a checkout: repository-specific rules and
