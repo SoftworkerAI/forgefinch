@@ -75,7 +75,7 @@ def main() -> int:
         "name": "Forgefinch",
         "url": "https://github.com/dev0x1",
     }
-    assert claude_catalog["version"] == "0.1.0"
+    assert claude_catalog["version"] == "0.2.0"
 
     codex_entries = codex_catalog["plugins"]
     claude_entries = claude_catalog["plugins"]

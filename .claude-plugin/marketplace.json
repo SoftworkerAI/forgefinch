@@ -3,7 +3,7 @@
   "name": "forgefinch",
   "owner": { "name": "Forgefinch", "url": "https://github.com/dev0x1" },
   "description": "Software-engineering workflows with optional client and backend skill packs.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "plugins": [
     {
       "name": "forgefinch-core",

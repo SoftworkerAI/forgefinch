@@ -24,7 +24,7 @@ you want that supplemental guidance.
 ### Codex
 
 ```bash
-codex plugin marketplace add dev0x1/forgefinch@v0.1.0
+codex plugin marketplace add dev0x1/forgefinch@v0.2.0
 codex plugin add forgefinch-core@forgefinch
 codex plugin add forgefinch-client@forgefinch   # optional client pack
 codex plugin add forgefinch-backend@forgefinch  # optional backend pack
